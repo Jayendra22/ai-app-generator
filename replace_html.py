@@ -1,4 +1,4 @@
-<!DOCTYPE html>
+new_html = """<!DOCTYPE html>
 <html lang="en">
 <head>
     <meta charset="UTF-8">
@@ -142,7 +142,7 @@
             html += '<h2 style="color:' + (executionReady ? '#22c55e' : '#ef4444') + ';margin-bottom:5px;">' + (executionReady ? 'Execution Ready' : 'Not Execution Ready') + '</h2>';
             html += '<p style="color:#6b6b8a;font-size:0.85rem;">DB: ' + (hasDB ? 'OK' : 'Missing') + ' | API: ' + (hasAPI ? 'OK' : 'Missing') + ' | UI: ' + (hasUI ? 'OK' : 'Missing') + ' | Auth: ' + (hasAuth ? 'OK' : 'Missing') + '</p>';
             html += '</div>';
-            html += '<button class="download-btn" onclick='downloadJSON(' + JSON.stringify(final) + ')'>Download JSON</button>';
+            html += '<button class="download-btn" onclick=\'downloadJSON(' + JSON.stringify(final) + ')\'>Download JSON</button>';
             html += '</div>';
 
             const assumptions = (stages.stage1_intent && stages.stage1_intent.assumptions) ? stages.stage1_intent.assumptions : [];
@@ -179,4 +179,8 @@
         }
     </script>
 </body>
-</html>
+</html>"""
+
+with open("templates/index.html", "w", encoding="utf-8") as f:
+    f.write(new_html)
+print("HTML upgraded successfully!")
